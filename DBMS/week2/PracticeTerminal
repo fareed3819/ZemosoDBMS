@@ -1,0 +1,1728 @@
+fareed@zadimin-Latitude-E5450:~$ mysql -u fareed -p
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 10
+Server version: 5.7.26-0ubuntu0.18.10.1 (Ubuntu)
+
+Copyright (c) 2000, 2019, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use courceera;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> show tables;
++---------------------+
+| Tables_in_courceera |
++---------------------+
+| RESOURCETBL         |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql>  create table FACILITY (faceno char(4),facename varchar(50));
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> alter table FACILITY add constraint contacts_pk PRIMARY KEY(faceno);
+Query OK, 0 rows affected (0.05 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc FACILITY;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| faceno   | char(4)     | NO   | PRI | NULL    |       |
+| facename | varchar(50) | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql> Insert into FACILITY (FACNO,FACNAME) values ('F100','Football stadium');
+ERROR 1054 (42S22): Unknown column 'FACNO' in 'field list'
+mysql> Insert into FACILITY (FACNO,FACNAME) values ('F101','Basketball arena');
+ERROR 1054 (42S22): Unknown column 'FACNO' in 'field list'
+mysql> Insert into FACILITY (FACNO,FACNAME) values ('F102','Baseball field');
+ERROR 1054 (42S22): Unknown column 'FACNO' in 'field list'
+mysql> Insert into FACILITY (FACNO,FACNAME) values ('F101','Basketball arena');
+ERROR 1054 (42S22): Unknown column 'FACNO' in 'field list'
+mysql> 
+mysql> Insert into FACILITY (faceno,facename) values ('F100','Football stadium');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> Insert into FACILITY (faceno,facename) values ('F101','Basketball arena');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> Insert into FACILITY (faceno,facename) values ('F102','Baseball field');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> Insert into FACILITY (faceno,facename) values ('F103','Recreation room');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> 
+mysql> selec t * from FACILITY;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'selec t * from FACILITY' at line 1
+mysql> select * from FACILITY;
++--------+------------------+
+| faceno | facename         |
++--------+------------------+
+| F100   | Football stadium |
+| F101   | Basketball arena |
+| F102   | Baseball field   |
+| F103   | Recreation room  |
++--------+------------------+
+4 rows in set (0.00 sec)
+
+mysql> 
+
+
+
+
+
+
+
+
+mysql> create table Location ( locno char(4) primary key, facno char(4) , locname varchar(50), foreign key (facno) references Facility(faceno) );
+ERROR 1215 (HY000): Cannot add foreign key constraint
+mysql> 
+mysql> create table Facility (
+    ->     -> faceno char(4),
+    -> Insert into FACILITY (faceno,facename) values ('F101','Basketball arena');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    -> Insert into FACILITY (faceno,facename) values ('F101','Basketball arena');;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    -> Insert into FACILITY (faceno,facename) values ('F101','Basketball arena');;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    -> Insert into FACILITY (faceno,facename) values ('F101','Basketball arena');;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    -> Insert into FACILITY (faceno,facename) values ('F101','Basketball arena');;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    -> Insert into FACILITY (faceno,facename) values ('F101','Basketball arena');;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-> faceno char(4),' at line 2
+mysql> create table Location ( locno char(4) primary key, facno char(4) , locname varchar(50), foreign key (facno) references Facility(faceno) );
+ERROR 1215 (HY000): Cannot add foreign key constraint
+mysql> 
+mysql> create table Facility (
+    ->     -> faceno char(4),
+    ->     -> facename varchar(50) );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-> faceno char(4),
+    -> facename varchar(50) )' at line 2
+mysql> create table Location ( locno char(4) primary key, facno char(4) , locname varchar(50), foreign key (facno) references Facility(faceno) );
+ERROR 1215 (HY000): Cannot add foreign key constraint
+mysql> 
+mysql> create table Facility (
+    ->     -> faceno char(4),
+    ->     -> facename varchar(50);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-> faceno char(4),
+    -> facename varchar(50)' at line 2
+mysql> create table Location ( locno char(4) primary key, facno char(4) , locname varchar(50), foreign key (facno) references Facility(faceno) );
+ERROR 1215 (HY000): Cannot add foreign key constraint
+mysql> 
+mysql> create table Facility (
+    ->     -> faceno char(4),
+    ->     -> facename varchar(50);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-> faceno char(4),
+    -> facename varchar(50)' at line 2
+mysql> create table LOCATION ( locno char(4) primary key, facno char(4) , locname varchar(50), foreign key (facno) references FACILITY(faceno));
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> 
+mysql> DESC LOCATION;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| locno   | char(4)     | NO   | PRI | NULL    |       |
+| facno   | char(4)     | YES  | MUL | NULL    |       |
+| locname | varchar(50) | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+mysql> Insert into LOCATION (locno,facno,locname) values ('L100','F100','Locker room');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> Insert into LOCATION (locno,facno,locname) values ('L101','F100','Plaza');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> Insert into LOCATION (locno,facno,locname) values ('L102','F100','Vehicle gate');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> Insert into LOCATION (locno,facno,locname) values ('L103','F101','Locker room');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> Insert into LOCATION (locno,facno,locname) values ('L104','F100','Ticket Booth');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> Insert into LOCATION (locno,facno,locname) values ('L105','F101','Gate');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> Insert into LOCATION (locno,facno,locname) values ('L106','F100','Pedestrian gate');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from LOATION;
+ERROR 1146 (42S02): Table 'courceera.LOATION' doesn't exist
+mysql> select * from LOCATION;
++-------+-------+-----------------+
+| locno | facno | locname         |
++-------+-------+-----------------+
+| L100  | F100  | Locker room     |
+| L101  | F100  | Plaza           |
+| L102  | F100  | Vehicle gate    |
+| L103  | F101  | Locker room     |
+| L104  | F100  | Ticket Booth    |
+| L105  | F101  | Gate            |
+| L106  | F100  | Pedestrian gate |
++-------+-------+-----------------+
+7 rows in set (0.00 sec)
+
+mysql> 
+mysql> show tables;
++---------------------+
+| Tables_in_courceera |
++---------------------+
+| FACILITY            |
+| LOCATION            |
+| RESOURCETBL         |
++---------------------+
+3 rows in set (0.00 sec)
+
+mysql> create table Employee (
+    ->     -> empno char(4) primary key,
+    ->     -> empname varchar(100),
+    ->     -> department varchar(50),
+    ->     -> email varchar(50),
+    -> ;    -> phone int);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-> empno char(4) primary key,
+    -> empname varchar(100),
+    -> department var' at line 2
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-> phone int)' at line 1
+mysql> create table Employee (     -> empno char(4) primary key,     -> empname varchar(100),     -> department varchar(50),     -> email varchar(50),;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-> empno char(4) primary key,     -> empname varchar(100),     -> department var' at line 1
+mysql> 
+mysql> 
+mysql> 
+mysql> create table EMPLOYEE(
+    ->     -> empno char(4) primary key,
+    ->     -> empname varchar(100),
+    ->     -> department varchar(50),
+    ->     -> email varchar(50),
+    ->     -> phone int));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-> empno char(4) primary key,
+    -> empname varchar(100),
+    -> department var' at line 2
+mysql> create table EMPLOYEE(     -> empno char(4) primary key,     -> empname varchar(100),     -> department varchar(50),     -> email varchar(50),     -> phone int);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-> empno char(4) primary key,     -> empname varchar(100),     -> department var' at line 1
+mysql> 
+mysql> create table EMPLOYEE(
+    ->     -> empno char(4) primary key,
+    ->     -> empname varchar(100),
+    ->     -> department varchar(50),
+    ->     -> email varchar(50),
+    ->     -> phone int);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-> empno char(4) primary key,
+    -> empname varchar(100),
+    -> department var' at line 2
+mysql> create table EMPLOYEE(      empno char(4) primary key,      empname varchar(100),     department varchar(50), email varchar(50), phone int);
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> Insert into EMPLOYEE (empno,empname,department,email,phone) values ('E100','Chuck Coordinator','Administration','chuck@colorado.edu','3-1111');
+ERROR 1265 (01000): Data truncated for column 'phone' at row 1
+mysql> Insert into EMPLOYEE (empno,empname,department,email,phone) values ('E101','Mary Manager','Football','mary@colorado.edu','5-1111');
+ERROR 1265 (01000): Data truncated for column 'phone' at row 1
+mysql> Insert into EMPLOYEE (empno,empname,department,email,phone) values ('E102','Sally Supervisor','Planning','sally@colorado.edu','3-2222');
+ERROR 1265 (01000): Data truncated for column 'phone' at row 1
+mysql> Insert into EMPLOYEE (empno,empname,department,email,phone) values ('E103','Alan Administrator','Administration','alan@colorado.edu','3-3333');
+ERROR 1265 (01000): Data truncated for column 'phone' at row 1
+mysql> 
+
+
+
+
+
+
+
+
+
+
+
+mysql> Insert into EMPLOYEE (empno,empname,department,email,phone) values ('E100','Chuck Coordinator','Administration','chuck@colorado.edu','3-1111');
+ERROR 1265 (01000): Data truncated for column 'phone' at row 1
+mysql> Insert into EMPLOYEE (empno,empname,department,email,phone) values ('E101','Mary Manager','Football','mary@colorado.edu','5-1111');
+ERROR 1265 (01000): Data truncated for column 'phone' at row 1
+mysql> Insert into EMPLOYEE (empno,empname,department,email,phone) values ('E102','Sally Supervisor','Planning','sally@colorado.edu','3-2222');
+ERROR 1265 (01000): Data truncated for column 'phone' at row 1
+mysql> Insert into EMPLOYEE (empno,empname,department,email,phone) values ('E103','Alan Administrator','Administration','alan@colorado.edu','3-3333');
+ERROR 1265 (01000): Data truncated for column 'phone' at row 1
+mysql> Insert into EMPLOYEE (empno,empname,department,email,phone) values ('E100','Chuck Coordinator','Administration','chuck@colorado.edu','3-1111');
+ERROR 1265 (01000): Data truncated for column 'phone' at row 1
+mysql> Insert into EMPLOYEE (empno,empname,department,email,phone) values ('E101','Mary Manager','Football','mary@colorado.edu','5-1111');
+ERROR 1265 (01000): Data truncated for column 'phone' at row 1
+mysql> Insert into EMPLOYEE (empno,empname,department,email,phone) values ('E102','Sally Supervisor','Planning','sally@colorado.edu','3-2222');
+ERROR 1265 (01000): Data truncated for column 'phone' at row 1
+mysql> Insert into EMPLOYEE (empno,empname,department,email,phone) values ('E103','Alan Administrator','Administration','alan@colorado.edu','3-3333');
+ERROR 1265 (01000): Data truncated for column 'phone' at row 1
+mysql> 
+mysql> Insert into EMPLOYEE (empno,empname,department,email,phone) values ('E100','Chuck Coordinator','Administration','chuck@colorado.edu','3-1111');
+ERROR 1265 (01000): Data truncated for column 'phone' at row 1
+mysql> Insert into EMPLOYEE (empno,empname,department,email,phone) values ('E101','Mary Manager','Football','mary@colorado.edu','5-1111');
+ERROR 1265 (01000): Data truncated for column 'phone' at row 1
+mysql> Insert into EMPLOYEE (empno,empname,department,email,phone) values ('E102','Sally Supervisor','Planning','sally@colorado.edu','3-2222');
+ERROR 1265 (01000): Data truncated for column 'phone' at row 1
+mysql> Insert into EMPLOYEE (empno,empname,department,email,phone) values ('E103','Alan Administrator','Administration','alan@colorado.edu','3-3333');
+ERROR 1265 (01000): Data truncated for column 'phone' at row 1
+mysql> 
+mysql> Insert into EMPLOYEE (empno,empname,department,email,phone) values ('E100','Chuck Coordinator','Administration','chuck@colorado.edu','3-1111');
+ERROR 1265 (01000): Data truncated for column 'phone' at row 1
+mysql> Insert into EMPLOYEE (empno,empname,department,email,phone) values ('E101','Mary Manager','Football','mary@colorado.edu','5-1111');
+ERROR 1265 (01000): Data truncated for column 'phone' at row 1
+mysql> Insert into EMPLOYEE (empno,empname,department,email,phone) values ('E102','Sally Supervisor','Planning','sally@colorado.edu','3-2222');
+ERROR 1265 (01000): Data truncated for column 'phone' at row 1
+mysql> Insert into EMPLOYEE (empno,empname,department,email,phone) values ('E103','Alan Administrator','Administration','alan@colorado.edu','3-3333');
+mysql> Insert into EMPLOYEE (empno,empname,department,email,phone) values ('E103','Alan Administrator','Administration','alan@colorado.edu','3-3333');
+ERROR 1265 (01000): Data truncated for column 'phone' at row 1
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> 
+mysql> Insert into EMPLOYEE (empno,empname,department,email,phone) values ('E100','Chuck Coordinator','Administration','chuck@colorado.edu','3-1111');
+ERROR 1265 (01000): Data truncated for column 'phone' at row 1
+mysql> Insert into EMPLOYEE (empno,empname,department,email,phone) values ('E101','Mary Manager','Football','mary@colorado.edu','5-1111');
+ERROR 1265 (01000): Data truncated for column 'phone' at row 1
+mysql> Insert into EMPLOYEE (empno,empname,department,email,phone) values ('E102','Sally Supervisor','Planning','sally@colorado.edu','3-2222');
+ERROR 1265 (01000): Data truncated for column 'phone' at row 1
+mysql> Insert into EMPLOYEE (empno,empname,department,email,phone) values ('E103','Alan Administrator','Administration','alan@colorado.edu','3-3333');
+ERROR 1265 (01000): Data truncated for column 'phone' at row 1
+mysql> 
+mysql> Insert into EMPLOYEE (empno,empname,department,email,phone) values ('E100','Chuck Coordinator','Administration','chuck@colorado.edu','3-1111');
+ERROR 1265 (01000): Data truncated for column 'phone' at row 1
+mysql> Insert into EMPLOYEE (empno,empname,department,email,phone) values ('E101','Mary Manager','Football','mary@colorado.edu','5-1111');
+ERROR 1265 (01000): Data truncated for column 'phone' at row 1
+mysql> Insert into EMPLOYEE (empno,empname,department,email,phone) values ('E102','Sally Supervisor','Planning','sally@colorado.edu','3-2222');
+ERROR 1265 (01000): Data truncated for column 'phone' at row 1
+mysql> Insert into EMPLOYEE (empno,empname,department,email,phone) values ('E103','Alan Administrator','Administration','alan@colorado.edu','3-3333');
+
+
+
+mysql> Insert into EMPLOYEE (empno,empname,department,email,phone) values ('E103','Alan Administrator','Administration','alan@colorado.edu','3-3333');
+ERROR 1265 (01000): Data truncated for column 'phone' at row 1
+mysql> 
+mysql> 
+mysql> Insert into EMPLOYEE (empno,empname,department,email,phone) values ('E100','Chuck Coordinator','Administration','chuck@colorado.edu','3-1111');
+ERROR 1265 (01000): Data truncated for column 'phone' at row 1
+mysql> Insert into EMPLOYEE (empno,empname,department,email,phone) values ('E101','Mary Manager','Football','mary@colorado.edu','5-1111');
+ERROR 1265 (01000): Data truncated for column 'phone' at row 1
+mysql> Insert into EMPLOYEE (empno,empname,department,email,phone) values ('E102','Sally Supervisor','Planning','sally@colorado.edu','3-2222');
+ERROR 1265 (01000): Data truncated for column 'phone' at row 1
+mysql> Insert into EMPLOYEE (empno,empname,department,email,phone) values ('E103','Alan Administrator','Administration','alan@colorado.edu','3-3333');
+ERROR 1265 (01000): Data truncated for column 'phone' at row 1
+mysql> Insert into EMPLOYEE (empno,empname,department,email,phone) values ('E100','Chuck Coordinator','Administration','chuck@colorado.edu',3-1111);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> Insert into EMPLOYEE (empno,empname,department,email,phone) values ('E101','Mary Manager','Football','mary@colorado.edu',5-1111);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> Insert into EMPLOYEE (empno,empname,department,email,phone) values ('E102','Sally Supervisor','Planning','sally@colorado.edu',3-2222);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> Insert into EMPLOYEE (empno,empname,department,email,phone) values ('E103','Alan Administrator','Administration','alan@colorado.edu',3-3333);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * frm EMPLOYEE:
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'frm EMPLOYEE:' at line 1
+mysql> select * frm EMPLOYEE;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'frm EMPLOYEE' at line 1
+mysql> select * from EMPLOYEE:
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ':' at line 1
+mysql> select * from EMPLOYEE;
++-------+--------------------+----------------+--------------------+-------+
+| empno | empname            | department     | email              | phone |
++-------+--------------------+----------------+--------------------+-------+
+| E100  | Chuck Coordinator  | Administration | chuck@colorado.edu | -1108 |
+| E101  | Mary Manager       | Football       | mary@colorado.edu  | -1106 |
+| E102  | Sally Supervisor   | Planning       | sally@colorado.edu | -2219 |
+| E103  | Alan Administrator | Administration | alan@colorado.edu  | -3330 |
++-------+--------------------+----------------+--------------------+-------+
+4 rows in set (0.00 sec)
+
+mysql> 
+mysql> create table CUSTOMER ( custno char(4) primary key, custname varchar(100), address varchar(150), internal varchar(3), contact varchar(100), phone int, city varchar(50), state varchar(10), zip int );
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> Insert into CUSTOMER (custno,custname,address,internal,contact,phone,city,state,zip) values ('C100','Football','Box 352200','Y','Mary Manager','6857100','Boulder','CO','80309');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> Insert into CUSTOMER (custno,custname,address,internal,contact,phone,city,state,zip) values ('C101','Men''s Basketball','Box 352400','Y','Sally Supervisor','5431700','Boulder','CO','80309');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> Insert into CUSTOMER (custno,custname,address,internal,contact,phone,city,state,zip) values ('C103','Baseball','Box 352020','Y','Bill Baseball','5431234','Boulder','CO','80309');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> Insert into CUSTOMER (custno,custname,address,internal,contact,phone,city,state,zip) values ('C104','Women''s Softball','Box 351200','Y','Sue Softball','5434321','Boulder','CO','80309');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> Insert into CUSTOMER (custno,custname,address,internal,contact,phone,city,state,zip) values ('C105','High School Football','123 AnyStreet','N','Coach Bob','4441234','Louisville','CO','80027');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from CUSTOMET;
+ERROR 1146 (42S02): Table 'courceera.CUSTOMET' doesn't exist
+mysql> select * from CUSTOMEr;
+ERROR 1146 (42S02): Table 'courceera.CUSTOMEr' doesn't exist
+mysql> select * from CUSTOMER;
++--------+----------------------+---------------+----------+------------------+---------+------------+-------+-------+
+| custno | custname             | address       | internal | contact          | phone   | city       | state | zip   |
++--------+----------------------+---------------+----------+------------------+---------+------------+-------+-------+
+| C100   | Football             | Box 352200    | Y        | Mary Manager     | 6857100 | Boulder    | CO    | 80309 |
+| C101   | Men's Basketball     | Box 352400    | Y        | Sally Supervisor | 5431700 | Boulder    | CO    | 80309 |
+| C103   | Baseball             | Box 352020    | Y        | Bill Baseball    | 5431234 | Boulder    | CO    | 80309 |
+| C104   | Women's Softball     | Box 351200    | Y        | Sue Softball     | 5434321 | Boulder    | CO    | 80309 |
+| C105   | High School Football | 123 AnyStreet | N        | Coach Bob        | 4441234 | Louisville | CO    | 80027 |
++--------+----------------------+---------------+----------+------------------+---------+------------+-------+-------+
+5 rows in set (0.00 sec)
+
+mysql> 
+mysql> show tables;
++---------------------+
+| Tables_in_courceera |
++---------------------+
+| CUSTOMER            |
+| EMPLOYEE            |
+| FACILITY            |
+| LOCATION            |
+| RESOURCETBL         |
++---------------------+
+5 rows in set (0.00 sec)
+
+mysql> create table EVENTREQUEST ( eventno char(4) primary key, dateheld date, datereq date,  facno char(4), custno char(4), dateauth date, status varchar(20), estcost varchar(15), estaudience int, budno char(5), foreign key (facno) references FACILITY (faceno), foreign key (custno) references CUSTOMER(custno) );
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> Insert into EVENTREQUEST (eventno,dateheld,datereq,custno,facno,dateauth,status,estcost,estaudience,budno) values ('E100',str_to_date('25,OCT,18','%d,%b,%y'),str_to_date('06,JUN,18','%d,%b,%y'),'C100','F100',str_to_date('08,JUN,18','%d,%b,%y'),'Approved',5000,80000,'B1000');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> Insert into EVENTREQUEST (eventno,dateheld,datereq,custno,facno,dateauth,status,estcost,estaudience,budno) values ('E101',str_to_date('26,OCT,18','%d,%b,%y'),str_to_date('28,JUL,18','%d,%b,%y'),'C100','F100',null,'Pending',5000,80000,'B1000');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> Insert into EVENTREQUEST (eventno,dateheld,datereq,custno,facno,dateauth,status,estcost,estaudience,budno) values ('E103',str_to_date('21,SEP,18','%d,%b,%y'),str_to_date('28,JUL,18','%d,%b,%y'),'C100','F100',str_to_date('01,AUG,18','%d,%b,%y'),'Approved',5000,80000,'B1000');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> Insert into EVENTREQUEST (eventno,dateheld,datereq,custno,facno,dateauth,status,estcost,estaudience,budno) values ('E102',str_to_date('14,SEP,18','%d,%b,%y'),str_to_date('28,JUL,18','%d,%b,%y'),'C100','F100',str_to_date('31,JUL,18','%d,%b,%y'),'Approved',5000,80000,'B1000');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> Insert into EVENTREQUEST (eventno,dateheld,datereq,custno,facno,dateauth,status,estcost,estaudience,budno) values ('E104',str_to_date('03,DEC,18','%d,%b,%y'),str_to_date('28,JUL,18','%d,%b,%y'),'C101','F101',str_to_date('31,JUL,18','%d,%b,%y'),'Approved',2000,12000,'B1000');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> Insert into EVENTREQUEST (eventno,dateheld,datereq,custno,facno,dateauth,status,estcost,estaudience,budno) values ('E105',str_to_date('05,DEC,18','%d,%b,%y'),str_to_date('28,JUL,18','%d,%b,%y'),'C101','F101',str_to_date('01,AUG,18','%d,%b,%y'),'Approved',2000,10000,'B1000');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> Insert into EVENTREQUEST (eventno,dateheld,datereq,custno,facno,dateauth,status,estcost,estaudience,budno) values ('E106',str_to_date('12,DEC,18','%d,%b,%y'),str_to_date('28,JUL,18','%d,%b,%y'),'C101','F101',str_to_date('31,JUL,18','%d,%b,%y'),'Approved',2000,10000,'B1000');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> Insert into EVENTREQUEST (eventno,dateheld,datereq,custno,facno,dateauth,status,estcost,estaudience,budno) values ('E107',str_to_date('23,NOV,18','%d,%b,%y'),str_to_date('28,JUL,18','%d,%b,%y'),'C105','F100',str_to_date('31,JUL,18','%d,%b,%y'),'Denied',10000,5000,null);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> 
+mysql> show tables;
++---------------------+
+| Tables_in_courceera |
++---------------------+
+| CUSTOMER            |
+| EMPLOYEE            |
+| EVENTREQUEST        |
+| FACILITY            |
+| LOCATION            |
+| RESOURCETBL         |
++---------------------+
+6 rows in set (0.01 sec)
+
+mysql> select * from EVENTREQUEST:
+    -> 
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ':' at line 1
+mysql> select * from EVENTREQUEST;
++---------+------------+------------+-------+--------+------------+----------+---------+-------------+-------+
+| eventno | dateheld   | datereq    | facno | custno | dateauth   | status   | estcost | estaudience | budno |
++---------+------------+------------+-------+--------+------------+----------+---------+-------------+-------+
+| E100    | 2018-10-25 | 2018-06-06 | F100  | C100   | 2018-06-08 | Approved | 5000    |       80000 | B1000 |
+| E101    | 2018-10-26 | 2018-07-28 | F100  | C100   | NULL       | Pending  | 5000    |       80000 | B1000 |
+| E102    | 2018-09-14 | 2018-07-28 | F100  | C100   | 2018-07-31 | Approved | 5000    |       80000 | B1000 |
+| E103    | 2018-09-21 | 2018-07-28 | F100  | C100   | 2018-08-01 | Approved | 5000    |       80000 | B1000 |
+| E104    | 2018-12-03 | 2018-07-28 | F101  | C101   | 2018-07-31 | Approved | 2000    |       12000 | B1000 |
+| E105    | 2018-12-05 | 2018-07-28 | F101  | C101   | 2018-08-01 | Approved | 2000    |       10000 | B1000 |
+| E106    | 2018-12-12 | 2018-07-28 | F101  | C101   | 2018-07-31 | Approved | 2000    |       10000 | B1000 |
+| E107    | 2018-11-23 | 2018-07-28 | F100  | C105   | 2018-07-31 | Denied   | 10000   |        5000 | NULL  |
++---------+------------+------------+-------+--------+------------+----------+---------+-------------+-------+
+8 rows in set (0.00 sec)
+
+mysql> create table EVENTPLAN (planno varchar(5) primary key, eventno char(4),  workdate date, notes varchar(100), activity varchar(50), empno char(4), foreign key (eventno) references EVENTREQUEST (eventno), foreign key (empno) references EMPLOYEE(empno) );
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> Insert into EVENTPLAN (planno,eventno,workdate,notes,activity,empno) values ('P100','E100',str_to_date('25,OCT,18','%d,%b,%y'),'Standard operation','Operation','E102');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> Insert into EVENTPLAN (planno,eventno,workdate,notes,activity,empno) values ('P101','E104',str_to_date('03,DEC,18','%d,%b,%y'),'Watch for gate crashers','Operation','E100');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> Insert into EVENTPLAN (planno,eventno,workdate,notes,activity,empno) values ('P102','E105',str_to_date('05,DEC,18','%d,%b,%y'),'Standard operation','Operation','E102');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> Insert into EVENTPLAN (planno,eventno,workdate,notes,activity,empno) values ('P103','E106',str_to_date('12,DEC,18','%d,%b,%y'),'Watch for seat switching','Operation',null);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> Insert into EVENTPLAN (planno,eventno,workdate,notes,activity,empno) values ('P104','E101',str_to_date('26,OCT,18','%d,%b,%y'),'Standard cleanup','Cleanup','E101');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> Insert into EVENTPLAN (planno,eventno,workdate,notes,activity,empno) values ('P105','E100',str_to_date('25,OCT,18','%d,%b,%y'),'Light cleanup','Cleanup','E101');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> Insert into EVENTPLAN (planno,eventno,workdate,notes,activity,empno) values ('P199','E102',str_to_date('10,DEC,18','%d,%b,%y'),'ABC','Operation','E101');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> Insert into EVENTPLAN (planno,eventno,workdate,notes,activity,empno) values ('P299','E101',str_to_date('26,OCT,18','%d,%b,%y'),null,'Operation','E101');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> Insert into EVENTPLAN (planno,eventno,workdate,notes,activity,empno) values ('P349','E106',str_to_date('12,DEC,18','%d,%b,%y'),null,'Setup','E101');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> Insert into EVENTPLAN (planno,eventno,workdate,notes,activity,empno) values ('P85','E100',str_to_date('25,OCT,18','%d,%b,%y'),'Standard operation','Cleanup','E102');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> Insert into EVENTPLAN (planno,eventno,workdate,notes,activity,empno) values ('P95','E101',str_to_date('26,OCT,18','%d,%b,%y'),'Extra security','Cleanup','E102');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> show tables;
++---------------------+
+| Tables_in_courceera |
++---------------------+
+| CUSTOMER            |
+| EMPLOYEE            |
+| EVENTPLAN           |
+| EVENTREQUEST        |
+| FACILITY            |
+| LOCATION            |
+| RESOURCETBL         |
++---------------------+
+7 rows in set (0.00 sec)
+
+mysql> select * from EVENTPLAN;
++--------+---------+------------+--------------------------+-----------+-------+
+| planno | eventno | workdate   | notes                    | activity  | empno |
++--------+---------+------------+--------------------------+-----------+-------+
+| P100   | E100    | 2018-10-25 | Standard operation       | Operation | E102  |
+| P101   | E104    | 2018-12-03 | Watch for gate crashers  | Operation | E100  |
+| P102   | E105    | 2018-12-05 | Standard operation       | Operation | E102  |
+| P103   | E106    | 2018-12-12 | Watch for seat switching | Operation | NULL  |
+| P104   | E101    | 2018-10-26 | Standard cleanup         | Cleanup   | E101  |
+| P105   | E100    | 2018-10-25 | Light cleanup            | Cleanup   | E101  |
+| P199   | E102    | 2018-12-10 | ABC                      | Operation | E101  |
+| P299   | E101    | 2018-10-26 | NULL                     | Operation | E101  |
+| P349   | E106    | 2018-12-12 | NULL                     | Setup     | E101  |
+| P85    | E100    | 2018-10-25 | Standard operation       | Cleanup   | E102  |
+| P95    | E101    | 2018-10-26 | Extra security           | Cleanup   | E102  |
++--------+---------+------------+--------------------------+-----------+-------+
+11 rows in set (0.00 sec)
+
+mysql> create table EVENTPLANLINE (Planno varchar(5) primary key, LineNo int, TimeStart datetime, TimeEnd datetime, Numberfld int, LocNo char(4), ResNo char(4), foreign key (LocNo) references LOCATION(locno), foreign key (ResNo) references RESOURCETBL (resno) );
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> alter table EVENTPLANLINE add constraint foreign key (Planno) references EVENTPLAN (planno);
+Query OK, 0 rows affected (0.08 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P100',1, str_to_date('25,OCT,18 8:00:00','%d,%b,%y %H:%i:%s'), str_to_date('25,OCT,18 17:00:00','%d,%b,%y %H:%i:%s'),2,'L100','R100');
+o,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P349',1, str_to_date('12,DEC,18 12:00:00','%d,%b,%y %H:%i:%s'),str_to_date('12,DEC,18 15:30:00','%d,%b,%y %H:%i:%s'),1,'L103','R100');
+Insert into EVENTPLANLINE (Planno,LinQuery OK, 1 row affected (0.00 sec)
+
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P100',2, str_to_date('25,OCT,18 12:00:00','%d,%b,%y %H:%i:%s'),str_to_date('25,OCT,18 17:00:00','%d,%b,%y %H:%i:%s'), 2,'L101','R101');
+:%s'),5,'L100','R100');
+Insert into EVENTPLANLINE (Planno,LineERROR 1062 (23000): Duplicate entry 'P100' for key 'PRIMARY'
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P100',3, str_to_date('25,OCT,18 7:00:00','%d,%b,%y %H:%i:%s'), str_to_date('25,OCT,18 16:30:00','%d,%b,%y %H:%i:%s'), 1,'L102','R102');
+ERROR 1062 (23000): Duplicate entry 'P100' for key 'PRIMARY'
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P100',4, str_to_date('25,OCT,18 18:00:00','%d,%b,%y %H:%i:%s'),str_to_date('25,OCT,18 22:00:00','%d,%b,%y %H:%i:%s'),2,'L100','R102');
+ERROR 1062 (23000): Duplicate entry 'P100' for key 'PRIMARY'
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P101',1, str_to_date('3,DEC,18 18:00:00','%d,%b,%y %H:%i:%s'),str_to_date('3,DEC,18 20:00:00','%d,%b,%y %H:%i:%s'),2,'L103','R100');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P101',2, str_to_date('3,DEC,18 18:30:00','%d,%b,%y %H:%i:%s'),str_to_date('3,DEC,18 19:00:00','%d,%b,%y %H:%i:%s'),4,'L105','R100');
+ERROR 1062 (23000): Duplicate entry 'P101' for key 'PRIMARY'
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P101',3, str_to_date('3,DEC,18 19:00:00','%d,%b,%y %H:%i:%s'),str_to_date('3,DEC,18 20:00:00','%d,%b,%y %H:%i:%s'),2,'L103','R103');
+ineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P95',3, str_to_date('26,OCT,18 10:00:00','%d,%b,%y %H:%i:%s'), str_to_date('26,OCT,18 15:00:00','%d,%b,%y %H:%i:%s'),4,'L106','R100');
+Insert into EVENTPLANLINE (PlannoERROR 1062 (23000): Duplicate entry 'P101' for key 'PRIMARY'
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P102',1, str_to_date('5,DEC,18 18:00:00','%d,%b,%y %H:%i:%s'),str_to_date('5,DEC,18 19:00:00','%d,%b,%y %H:%i:%s'),2,'L103','R100');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P102',2, str_to_date('5,DEC,18 18:00:00','%d,%b,%y %H:%i:%s'),str_to_date('5,DEC,18 21:00:00','%d,%b,%y %H:%i:%s'),4,'L105','R100');
+ERROR 1062 (23000): Duplicate entry 'P102' for key 'PRIMARY'
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P102',3, str_to_date('5,DEC,18 19:00:00','%d,%b,%y %H:%i:%s'),str_to_date('5,DEC,18 22:00:00','%d,%b,%y %H:%i:%s'),2,'L103','R103');
+ERROR 1062 (23000): Duplicate entry 'P102' for key 'PRIMARY'
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P103',1, str_to_date('12,DEC,18 18:00:00','%d,%b,%y %H:%i:%s'),str_to_date('12,DEC,18 21:00:00','%d,%b,%y %H:%i:%s'),2,'L103','R100');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P103',2, str_to_date('12,DEC,18 18:00:00','%d,%b,%y %H:%i:%s'),str_to_date('12,DEC,18 21:00:00','%d,%b,%y %H:%i:%s'),4,'L105','R100');
+ERROR 1062 (23000): Duplicate entry 'P103' for key 'PRIMARY'
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P103',3, str_to_date('12,DEC,18 19:00:00','%d,%b,%y %H:%i:%s'),str_to_date('12,DEC,18 22:00:00','%d,%b,%y %H:%i:%s'),2,'L103','R103');
+ERROR 1062 (23000): Duplicate entry 'P103' for key 'PRIMARY'
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P104',1, str_to_date('26,OCT,18 18:00:00','%d,%b,%y %H:%i:%s'),str_to_date('26,OCT,18 22:00:00','%d,%b,%y %H:%i:%s'),4,'L101','R104');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P104',2, str_to_date('26,OCT,18 18:00:00','%d,%b,%y %H:%i:%s'),str_to_date('26,OCT,18 22:00:00','%d,%b,%y %H:%i:%s'),4,'L100','R104');
+ERROR 1062 (23000): Duplicate entry 'P104' for key 'PRIMARY'
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P105',1, str_to_date('25,OCT,18 18:00:00','%d,%b,%y %H:%i:%s'),str_to_date('25,OCT,18 22:00:00','%d,%b,%y %H:%i:%s'),4,'L101','R104');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P105',2, str_to_date('25,OCT,18 18:00:00','%d,%b,%y %H:%i:%s'),str_to_date('25,OCT,18 22:00:00','%d,%b,%y %H:%i:%s'),4,'L100','R104');
+ERROR 1062 (23000): Duplicate entry 'P105' for key 'PRIMARY'
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P199',1, str_to_date('10,DEC,18 8:00:00','%d,%b,%y %H:%i:%s'), str_to_date('10,DEC,18 12:00:00','%d,%b,%y %H:%i:%s'),1,'L100','R100');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P349',1, str_to_date('12,DEC,18 12:00:00','%d,%b,%y %H:%i:%s'),str_to_date('12,DEC,18 15:30:00','%d,%b,%y %H:%i:%s'),1,'L103','R100');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P85',1,  str_to_date('25,OCT,18 9:00:00','%d,%b,%y %H:%i:%s'), str_to_date('25,OCT,18 17:00:00','%d,%b,%y %H:%i:%s'),5,'L100','R100');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P85',2,  str_to_date('25,OCT,18 8:00:00','%d,%b,%y %H:%i:%s'), str_to_date('25,OCT,18 17:00:00','%d,%b,%y %H:%i:%s'),2,'L102','R101');
+ERROR 1062 (23000): Duplicate entry 'P85' for key 'PRIMARY'
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P85',3, str_to_date('25,OCT,18 10:00:00','%d,%b,%y %H:%i:%s'), str_to_date('25,OCT,18 15:00:00','%d,%b,%y %H:%i:%s'),3,'L104','R100');
+ERROR 1062 (23000): Duplicate entry 'P85' for key 'PRIMARY'
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P95',1, str_to_date('26,OCT,18 8:00:00','%d,%b,%y %H:%i:%s'),  str_to_date('26,OCT,18 17:00:00','%d,%b,%y %H:%i:%s'),4,'L100','R100');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P95',2, str_to_date('26,OCT,18 9:00:00','%d,%b,%y %H:%i:%s'),  str_to_date('26,OCT,18 17:00:00','%d,%b,%y %H:%i:%s'),4,'L102','R101');
+ERROR 1062 (23000): Duplicate entry 'P95' for key 'PRIMARY'
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P95',3, str_to_date('26,OCT,18 10:00:00','%d,%b,%y %H:%i:%s'), str_to_date('26,OCT,18 15:00:00','%d,%b,%y %H:%i:%s'),4,'L106','R100');
+ERROR 1062 (23000): Duplicate entry 'P95' for key 'PRIMARY'
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P95',4, str_to_date('26,OCT,18 13:00:00','%d,%b,%y %H:%i:%s'), str_to_date('26,OCT,18 17:00:00','%d,%b,%y %H:%i:%s'),2,'L100','R103');
+ERROR 1062 (23000): Duplicate entry 'P95' for key 'PRIMARY'
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P95',5, str_to_date('26,OCT,18 13:00:00','%d,%b,%y %H:%i:%s'), str_to_date('26,OCT,18 17:00:00','%d,%b,%y %H:%i:%s'),2,'L101','R104');
+ERROR 1062 (23000): Duplicate entry 'P95' for key 'PRIMARY'
+mysql> select * from EVENTPLANLINE;
++--------+--------+---------------------+---------------------+-----------+-------+-------+
+| Planno | LineNo | TimeStart           | TimeEnd             | Numberfld | LocNo | ResNo |
++--------+--------+---------------------+---------------------+-----------+-------+-------+
+| P100   |      1 | 2018-10-25 08:00:00 | 2018-10-25 17:00:00 |         2 | L100  | R100  |
+| P101   |      1 | 2018-12-03 18:00:00 | 2018-12-03 20:00:00 |         2 | L103  | R100  |
+| P102   |      1 | 2018-12-05 18:00:00 | 2018-12-05 19:00:00 |         2 | L103  | R100  |
+| P103   |      1 | 2018-12-12 18:00:00 | 2018-12-12 21:00:00 |         2 | L103  | R100  |
+| P104   |      1 | 2018-10-26 18:00:00 | 2018-10-26 22:00:00 |         4 | L101  | R104  |
+| P105   |      1 | 2018-10-25 18:00:00 | 2018-10-25 22:00:00 |         4 | L101  | R104  |
+| P199   |      1 | 2018-12-10 08:00:00 | 2018-12-10 12:00:00 |         1 | L100  | R100  |
+| P349   |      1 | 2018-12-12 12:00:00 | 2018-12-12 15:30:00 |         1 | L103  | R100  |
+| P85    |      1 | 2018-10-25 09:00:00 | 2018-10-25 17:00:00 |         5 | L100  | R100  |
+| P95    |      1 | 2018-10-26 08:00:00 | 2018-10-26 17:00:00 |         4 | L100  | R100  |
++--------+--------+---------------------+---------------------+-----------+-------+-------+
+10 rows in set (0.00 sec)
+
+mysql> alter table EVENTPLANLINE add constraint primary key (Planno, LineNo);
+ERROR 1068 (42000): Multiple primary key defined
+mysql> alter table EVENTPLANLINE drop primary key;
+ERROR 1025 (HY000): Error on rename of './courceera/#sql-3e7_a' to './courceera/EVENTPLANLINE' (errno: 150 - Foreign key constraint is incorrectly formed)
+mysql> drop table EVENTPLANLINE;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> create table EVENTPLANLINE (Planno varchar(5) primary key, LineNo int, TimeStart datetime, TimeEnd datetime, Numberfld int, LocNO char(4), ResNo char(4), foreign key (LocNO) references LOCATION(LocNO), foreign key (ResNo) references RESOURCETBL (ResNo) );
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> alter table EVENTPLANLINE add constraint foreign key (Planno) references EVENTPLAN (Planno);
+Query OK, 0 rows affected (0.08 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> 
+mysql> alter table EVENTPLANLINE add constraint primary key (Planno, LineNo);
+ERROR 1068 (42000): Multiple primary key defined
+mysql> drop table EVENTPLANLINE:
+    -> 
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ':' at line 1
+mysql> drop table EVENTPLANLINE;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> create table EVENTPLANLINE (Planno varchar(5) primary key, LineNo int, TimeStart datetime, TimeEnd datetime, Numberfld int, LocNO char(4), ResNo char(4), foreign key (LocNO) references LOCATION(LocNO), foreign key (ResNo) references RESOURCETBL (ResNo) );
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> alter table EVENTPLANLINE add constraint primary key (Planno, LineNo);
+ERROR 1068 (42000): Multiple primary key defined
+mysql> alter table EVENTPLANLINE add constraint foreign key (Planno) references EVENTPLAN (Planno);
+Query OK, 0 rows affected (0.31 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P100',1, str_to_date('25,OCT,18 8:00:00','%d,%b,%y %H:%i:%s'), str_to_date('25,OCT,18 17:00:00','%d,%b,%y %H:%i:%s'),2,'L100','R100');
+eNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P349',1, str_to_date('12,DEC,18 12:00:00','%d,%b,%y %H:%i:%s'),str_to_date('12,DEC,18 15:30:00','%d,%b,%y %H:%i:%s'),1,'L103','R100');
+Insert into EVENTPLANLINE (Planno,LinQuery OK, 1 row affected (0.00 sec)
+
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P100',2, str_to_date('25,OCT,18 12:00:00','%d,%b,%y %H:%i:%s'),str_to_date('25,OCT,18 17:00:00','%d,%b,%y %H:%i:%s'), 2,'L101','R101');
+ERROR 1062 (23000): Duplicate entry 'P100' for key 'PRIMARY'
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P100',3, str_to_date('25,OCT,18 7:00:00','%d,%b,%y %H:%i:%s'), str_to_date('25,OCT,18 16:30:00','%d,%b,%y %H:%i:%s'), 1,'L102','R102');
+ERROR 1062 (23000): Duplicate entry 'P100' for key 'PRIMARY'
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P100',4, str_to_date('25,OCT,18 18:00:00','%d,%b,%y %H:%i:%s'),str_to_date('25,OCT,18 22:00:00','%d,%b,%y %H:%i:%s'),2,'L100','R102');
+ERROR 1062 (23000): Duplicate entry 'P100' for key 'PRIMARY'
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P101',1, str_to_date('3,DEC,18 18:00:00','%d,%b,%y %H:%i:%s'),str_to_date('3,DEC,18 20:00:00','%d,%b,%y %H:%i:%s'),2,'L103','R100');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P101',2, str_to_date('3,DEC,18 18:30:00','%d,%b,%y %H:%i:%s'),str_to_date('3,DEC,18 19:00:00','%d,%b,%y %H:%i:%s'),4,'L105','R100');
+ERROR 1062 (23000): Duplicate entry 'P101' for key 'PRIMARY'
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P101',3, str_to_date('3,DEC,18 19:00:00','%d,%b,%y %H:%i:%s'),str_to_date('3,DEC,18 20:00:00','%d,%b,%y %H:%i:%s'),2,'L103','R103');
+ERROR 1062 (23000): Duplicate entry 'P101' for key 'PRIMARY'
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P102',1, str_to_date('5,DEC,18 18:00:00','%d,%b,%y %H:%i:%s'),str_to_date('5,DEC,18 19:00:00','%d,%b,%y %H:%i:%s'),2,'L103','R100');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P102',2, str_to_date('5,DEC,18 18:00:00','%d,%b,%y %H:%i:%s'),str_to_date('5,DEC,18 21:00:00','%d,%b,%y %H:%i:%s'),4,'L105','R100');
+ERROR 1062 (23000): Duplicate entry 'P102' for key 'PRIMARY'
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P102',3, str_to_date('5,DEC,18 19:00:00','%d,%b,%y %H:%i:%s'),str_to_date('5,DEC,18 22:00:00','%d,%b,%y %H:%i:%s'),2,'L103','R103');
+ERROR 1062 (23000): Duplicate entry 'P102' for key 'PRIMARY'
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P103',1, str_to_date('12,DEC,18 18:00:00','%d,%b,%y %H:%i:%s'),str_to_date('12,DEC,18 21:00:00','%d,%b,%y %H:%i:%s'),2,'L103','R100');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P103',2, str_to_date('12,DEC,18 18:00:00','%d,%b,%y %H:%i:%s'),str_to_date('12,DEC,18 21:00:00','%d,%b,%y %H:%i:%s'),4,'L105','R100');
+ERROR 1062 (23000): Duplicate entry 'P103' for key 'PRIMARY'
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P103',3, str_to_date('12,DEC,18 19:00:00','%d,%b,%y %H:%i:%s'),str_to_date('12,DEC,18 22:00:00','%d,%b,%y %H:%i:%s'),2,'L103','R103');
+ERROR 1062 (23000): Duplicate entry 'P103' for key 'PRIMARY'
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P104',1, str_to_date('26,OCT,18 18:00:00','%d,%b,%y %H:%i:%s'),str_to_date('26,OCT,18 22:00:00','%d,%b,%y %H:%i:%s'),4,'L101','R104');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P104',2, str_to_date('26,OCT,18 18:00:00','%d,%b,%y %H:%i:%s'),str_to_date('26,OCT,18 22:00:00','%d,%b,%y %H:%i:%s'),4,'L100','R104');
+ERROR 1062 (23000): Duplicate entry 'P104' for key 'PRIMARY'
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P105',1, str_to_date('25,OCT,18 18:00:00','%d,%b,%y %H:%i:%s'),str_to_date('25,OCT,18 22:00:00','%d,%b,%y %H:%i:%s'),4,'L101','R104');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P105',2, str_to_date('25,OCT,18 18:00:00','%d,%b,%y %H:%i:%s'),str_to_date('25,OCT,18 22:00:00','%d,%b,%y %H:%i:%s'),4,'L100','R104');
+ERROR 1062 (23000): Duplicate entry 'P105' for key 'PRIMARY'
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P199',1, str_to_date('10,DEC,18 8:00:00','%d,%b,%y %H:%i:%s'), str_to_date('10,DEC,18 12:00:00','%d,%b,%y %H:%i:%s'),1,'L100','R100');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P349',1, str_to_date('12,DEC,18 12:00:00','%d,%b,%y %H:%i:%s'),str_to_date('12,DEC,18 15:30:00','%d,%b,%y %H:%i:%s'),1,'L103','R100');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P85',1,  str_to_date('25,OCT,18 9:00:00','%d,%b,%y %H:%i:%s'), str_to_date('25,OCT,18 17:00:00','%d,%b,%y %H:%i:%s'),5,'L100','R100');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P85',2,  str_to_date('25,OCT,18 8:00:00','%d,%b,%y %H:%i:%s'), str_to_date('25,OCT,18 17:00:00','%d,%b,%y %H:%i:%s'),2,'L102','R101');
+ERROR 1062 (23000): Duplicate entry 'P85' for key 'PRIMARY'
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P85',3, str_to_date('25,OCT,18 10:00:00','%d,%b,%y %H:%i:%s'), str_to_date('25,OCT,18 15:00:00','%d,%b,%y %H:%i:%s'),3,'L104','R100');
+ERROR 1062 (23000): Duplicate entry 'P85' for key 'PRIMARY'
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P95',1, str_to_date('26,OCT,18 8:00:00','%d,%b,%y %H:%i:%s'),  str_to_date('26,OCT,18 17:00:00','%d,%b,%y %H:%i:%s'),4,'L100','R100');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P95',2, str_to_date('26,OCT,18 9:00:00','%d,%b,%y %H:%i:%s'),  str_to_date('26,OCT,18 17:00:00','%d,%b,%y %H:%i:%s'),4,'L102','R101');
+ERROR 1062 (23000): Duplicate entry 'P95' for key 'PRIMARY'
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P95',3, str_to_date('26,OCT,18 10:00:00','%d,%b,%y %H:%i:%s'), str_to_date('26,OCT,18 15:00:00','%d,%b,%y %H:%i:%s'),4,'L106','R100');
+ERROR 1062 (23000): Duplicate entry 'P95' for key 'PRIMARY'
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P95',4, str_to_date('26,OCT,18 13:00:00','%d,%b,%y %H:%i:%s'), str_to_date('26,OCT,18 17:00:00','%d,%b,%y %H:%i:%s'),2,'L100','R103');
+ERROR 1062 (23000): Duplicate entry 'P95' for key 'PRIMARY'
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P95',5, str_to_date('26,OCT,18 13:00:00','%d,%b,%y %H:%i:%s'), str_to_date('26,OCT,18 17:00:00','%d,%b,%y %H:%i:%s'),2,'L101','R104');
+ERROR 1062 (23000): Duplicate entry 'P95' for key 'PRIMARY'
+mysql> select * from EVENTPLANLINE;
++--------+--------+---------------------+---------------------+-----------+-------+-------+
+| Planno | LineNo | TimeStart           | TimeEnd             | Numberfld | LocNO | ResNo |
++--------+--------+---------------------+---------------------+-----------+-------+-------+
+| P100   |      1 | 2018-10-25 08:00:00 | 2018-10-25 17:00:00 |         2 | L100  | R100  |
+| P101   |      1 | 2018-12-03 18:00:00 | 2018-12-03 20:00:00 |         2 | L103  | R100  |
+| P102   |      1 | 2018-12-05 18:00:00 | 2018-12-05 19:00:00 |         2 | L103  | R100  |
+| P103   |      1 | 2018-12-12 18:00:00 | 2018-12-12 21:00:00 |         2 | L103  | R100  |
+| P104   |      1 | 2018-10-26 18:00:00 | 2018-10-26 22:00:00 |         4 | L101  | R104  |
+| P105   |      1 | 2018-10-25 18:00:00 | 2018-10-25 22:00:00 |         4 | L101  | R104  |
+| P199   |      1 | 2018-12-10 08:00:00 | 2018-12-10 12:00:00 |         1 | L100  | R100  |
+| P349   |      1 | 2018-12-12 12:00:00 | 2018-12-12 15:30:00 |         1 | L103  | R100  |
+| P85    |      1 | 2018-10-25 09:00:00 | 2018-10-25 17:00:00 |         5 | L100  | R100  |
+| P95    |      1 | 2018-10-26 08:00:00 | 2018-10-26 17:00:00 |         4 | L100  | R100  |
++--------+--------+---------------------+---------------------+-----------+-------+-------+
+10 rows in set (0.00 sec)
+
+mysql> 
+mysql> drop table EVENTPLANLINE;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> create table EVENTPLANLINE (Planno varchar(5) primary key, LineNo int, TimeStart datetime, TimeEnd datetime, Numberfld int, LocNO char(4), ResNo char(4), foreign key (LocNO) references LOCATION(LocNO), foreign key (ResNo) references RESOURCETBL (ResNo) );
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> alter table EVENTPLANLINE drop primary key;
+Query OK, 0 rows affected (0.08 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table EVENTPLANLINE add constraint primary key (Planno, LineNo);
+Query OK, 0 rows affected (0.07 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table EVENTPLANLINE add constraint foreign key (Planno) references EVENTPLAN (Planno);
+Query OK, 0 rows affected (0.07 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P100',1, str_to_date('25,OCT,18 8:00:00','%d,%b,%y %H:%i:%s'), str_to_date('25,OCT,18 17:00:00','%d,%b,%y %H:%i:%s'),2,'L100','R100');
+No,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P349',1, str_to_date('12,DEC,18 12:00:00','%d,%b,%y %H:%i:%s'),str_to_date('12,DEC,18 15:30:00','%d,%b,%y %H:%i:%s'),1,'L103','R100');
+Insert into EVENTPLANLINE (Planno,LinQuery OK, 1 row affected (0.00 sec)
+
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P100',2, str_to_date('25,OCT,18 12:00:00','%d,%b,%y %H:%i:%s'),str_to_date('25,OCT,18 17:00:00','%d,%b,%y %H:%i:%s'), 2,'L101','R101');
+eNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P85',1,  str_to_date('25,OCT,18 9:00:00','%d,%b,%y %H:%i:%s'), str_to_date('25,OCT,18 17:00:00','%d,%b,%y %H:%i:%s'),5,'L100','R100');
+Insert into EVENTPLANLINE (Planno,LineQuery OK, 1 row affected (0.01 sec)
+
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P100',3, str_to_date('25,OCT,18 7:00:00','%d,%b,%y %H:%i:%s'), str_to_date('25,OCT,18 16:30:00','%d,%b,%y %H:%i:%s'), 1,'L102','R102');
+No,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P85',2,  str_to_date('25,OCT,18 8:00:00','%d,%b,%y %H:%i:%s'), str_to_date('25,OCT,18 17:00:00','%d,%b,%y %H:%i:%s'),2,'L102','R101');
+Insert into EVENTPLANLINE (Planno,LineNQuery OK, 1 row affected (0.00 sec)
+
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P100',4, str_to_date('25,OCT,18 18:00:00','%d,%b,%y %H:%i:%s'),str_to_date('25,OCT,18 22:00:00','%d,%b,%y %H:%i:%s'),2,'L100','R102');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P101',1, str_to_date('3,DEC,18 18:00:00','%d,%b,%y %H:%i:%s'),str_to_date('3,DEC,18 20:00:00','%d,%b,%y %H:%i:%s'),2,'L103','R100');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P101',2, str_to_date('3,DEC,18 18:30:00','%d,%b,%y %H:%i:%s'),str_to_date('3,DEC,18 19:00:00','%d,%b,%y %H:%i:%s'),4,'L105','R100');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P101',3, str_to_date('3,DEC,18 19:00:00','%d,%b,%y %H:%i:%s'),str_to_date('3,DEC,18 20:00:00','%d,%b,%y %H:%i:%s'),2,'L103','R103');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P102',1, str_to_date('5,DEC,18 18:00:00','%d,%b,%y %H:%i:%s'),str_to_date('5,DEC,18 19:00:00','%d,%b,%y %H:%i:%s'),2,'L103','R100');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P102',2, str_to_date('5,DEC,18 18:00:00','%d,%b,%y %H:%i:%s'),str_to_date('5,DEC,18 21:00:00','%d,%b,%y %H:%i:%s'),4,'L105','R100');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P102',3, str_to_date('5,DEC,18 19:00:00','%d,%b,%y %H:%i:%s'),str_to_date('5,DEC,18 22:00:00','%d,%b,%y %H:%i:%s'),2,'L103','R103');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P103',1, str_to_date('12,DEC,18 18:00:00','%d,%b,%y %H:%i:%s'),str_to_date('12,DEC,18 21:00:00','%d,%b,%y %H:%i:%s'),2,'L103','R100');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P103',2, str_to_date('12,DEC,18 18:00:00','%d,%b,%y %H:%i:%s'),str_to_date('12,DEC,18 21:00:00','%d,%b,%y %H:%i:%s'),4,'L105','R100');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P103',3, str_to_date('12,DEC,18 19:00:00','%d,%b,%y %H:%i:%s'),str_to_date('12,DEC,18 22:00:00','%d,%b,%y %H:%i:%s'),2,'L103','R103');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P104',1, str_to_date('26,OCT,18 18:00:00','%d,%b,%y %H:%i:%s'),str_to_date('26,OCT,18 22:00:00','%d,%b,%y %H:%i:%s'),4,'L101','R104');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P104',2, str_to_date('26,OCT,18 18:00:00','%d,%b,%y %H:%i:%s'),str_to_date('26,OCT,18 22:00:00','%d,%b,%y %H:%i:%s'),4,'L100','R104');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P105',1, str_to_date('25,OCT,18 18:00:00','%d,%b,%y %H:%i:%s'),str_to_date('25,OCT,18 22:00:00','%d,%b,%y %H:%i:%s'),4,'L101','R104');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P105',2, str_to_date('25,OCT,18 18:00:00','%d,%b,%y %H:%i:%s'),str_to_date('25,OCT,18 22:00:00','%d,%b,%y %H:%i:%s'),4,'L100','R104');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P199',1, str_to_date('10,DEC,18 8:00:00','%d,%b,%y %H:%i:%s'), str_to_date('10,DEC,18 12:00:00','%d,%b,%y %H:%i:%s'),1,'L100','R100');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P349',1, str_to_date('12,DEC,18 12:00:00','%d,%b,%y %H:%i:%s'),str_to_date('12,DEC,18 15:30:00','%d,%b,%y %H:%i:%s'),1,'L103','R100');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P85',1,  str_to_date('25,OCT,18 9:00:00','%d,%b,%y %H:%i:%s'), str_to_date('25,OCT,18 17:00:00','%d,%b,%y %H:%i:%s'),5,'L100','R100');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P85',2,  str_to_date('25,OCT,18 8:00:00','%d,%b,%y %H:%i:%s'), str_to_date('25,OCT,18 17:00:00','%d,%b,%y %H:%i:%s'),2,'L102','R101');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P85',3, str_to_date('25,OCT,18 10:00:00','%d,%b,%y %H:%i:%s'), str_to_date('25,OCT,18 15:00:00','%d,%b,%y %H:%i:%s'),3,'L104','R100');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P95',1, str_to_date('26,OCT,18 8:00:00','%d,%b,%y %H:%i:%s'),  str_to_date('26,OCT,18 17:00:00','%d,%b,%y %H:%i:%s'),4,'L100','R100');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P95',2, str_to_date('26,OCT,18 9:00:00','%d,%b,%y %H:%i:%s'),  str_to_date('26,OCT,18 17:00:00','%d,%b,%y %H:%i:%s'),4,'L102','R101');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P95',3, str_to_date('26,OCT,18 10:00:00','%d,%b,%y %H:%i:%s'), str_to_date('26,OCT,18 15:00:00','%d,%b,%y %H:%i:%s'),4,'L106','R100');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P95',4, str_to_date('26,OCT,18 13:00:00','%d,%b,%y %H:%i:%s'), str_to_date('26,OCT,18 17:00:00','%d,%b,%y %H:%i:%s'),2,'L100','R103');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> Insert into EVENTPLANLINE (Planno,LineNo,TimeStart,TimeEnd,Numberfld,LocNO,ResNo) values ('P95',5, str_to_date('26,OCT,18 13:00:00','%d,%b,%y %H:%i:%s'), str_to_date('26,OCT,18 17:00:00','%d,%b,%y %H:%i:%s'),2,'L101','R104');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from EVENTPLANLINE;
++--------+--------+---------------------+---------------------+-----------+-------+-------+
+| Planno | LineNo | TimeStart           | TimeEnd             | Numberfld | LocNO | ResNo |
++--------+--------+---------------------+---------------------+-----------+-------+-------+
+| P100   |      1 | 2018-10-25 08:00:00 | 2018-10-25 17:00:00 |         2 | L100  | R100  |
+| P100   |      2 | 2018-10-25 12:00:00 | 2018-10-25 17:00:00 |         2 | L101  | R101  |
+| P100   |      3 | 2018-10-25 07:00:00 | 2018-10-25 16:30:00 |         1 | L102  | R102  |
+| P100   |      4 | 2018-10-25 18:00:00 | 2018-10-25 22:00:00 |         2 | L100  | R102  |
+| P101   |      1 | 2018-12-03 18:00:00 | 2018-12-03 20:00:00 |         2 | L103  | R100  |
+| P101   |      2 | 2018-12-03 18:30:00 | 2018-12-03 19:00:00 |         4 | L105  | R100  |
+| P101   |      3 | 2018-12-03 19:00:00 | 2018-12-03 20:00:00 |         2 | L103  | R103  |
+| P102   |      1 | 2018-12-05 18:00:00 | 2018-12-05 19:00:00 |         2 | L103  | R100  |
+| P102   |      2 | 2018-12-05 18:00:00 | 2018-12-05 21:00:00 |         4 | L105  | R100  |
+| P102   |      3 | 2018-12-05 19:00:00 | 2018-12-05 22:00:00 |         2 | L103  | R103  |
+| P103   |      1 | 2018-12-12 18:00:00 | 2018-12-12 21:00:00 |         2 | L103  | R100  |
+| P103   |      2 | 2018-12-12 18:00:00 | 2018-12-12 21:00:00 |         4 | L105  | R100  |
+| P103   |      3 | 2018-12-12 19:00:00 | 2018-12-12 22:00:00 |         2 | L103  | R103  |
+| P104   |      1 | 2018-10-26 18:00:00 | 2018-10-26 22:00:00 |         4 | L101  | R104  |
+| P104   |      2 | 2018-10-26 18:00:00 | 2018-10-26 22:00:00 |         4 | L100  | R104  |
+| P105   |      1 | 2018-10-25 18:00:00 | 2018-10-25 22:00:00 |         4 | L101  | R104  |
+| P105   |      2 | 2018-10-25 18:00:00 | 2018-10-25 22:00:00 |         4 | L100  | R104  |
+| P199   |      1 | 2018-12-10 08:00:00 | 2018-12-10 12:00:00 |         1 | L100  | R100  |
+| P349   |      1 | 2018-12-12 12:00:00 | 2018-12-12 15:30:00 |         1 | L103  | R100  |
+| P85    |      1 | 2018-10-25 09:00:00 | 2018-10-25 17:00:00 |         5 | L100  | R100  |
+| P85    |      2 | 2018-10-25 08:00:00 | 2018-10-25 17:00:00 |         2 | L102  | R101  |
+| P85    |      3 | 2018-10-25 10:00:00 | 2018-10-25 15:00:00 |         3 | L104  | R100  |
+| P95    |      1 | 2018-10-26 08:00:00 | 2018-10-26 17:00:00 |         4 | L100  | R100  |
+| P95    |      2 | 2018-10-26 09:00:00 | 2018-10-26 17:00:00 |         4 | L102  | R101  |
+| P95    |      3 | 2018-10-26 10:00:00 | 2018-10-26 15:00:00 |         4 | L106  | R100  |
+| P95    |      4 | 2018-10-26 13:00:00 | 2018-10-26 17:00:00 |         2 | L100  | R103  |
+| P95    |      5 | 2018-10-26 13:00:00 | 2018-10-26 17:00:00 |         2 | L101  | R104  |
++--------+--------+---------------------+---------------------+-----------+-------+-------+
+27 rows in set (0.00 sec)
+
+mysql> SHOW TABLES;
++---------------------+
+| Tables_in_courceera |
++---------------------+
+| CUSTOMER            |
+| EMPLOYEE            |
+| EVENTPLAN           |
+| EVENTPLANLINE       |
+| EVENTREQUEST        |
+| FACILITY            |
+| LOCATION            |
+| RESOURCETBL         |
++---------------------+
+8 rows in set (0.00 sec)
+
+mysql> desc CUSTOMER;
++----------+--------------+------+-----+---------+-------+
+| Field    | Type         | Null | Key | Default | Extra |
++----------+--------------+------+-----+---------+-------+
+| custno   | char(4)      | NO   | PRI | NULL    |       |
+| custname | varchar(100) | YES  |     | NULL    |       |
+| address  | varchar(150) | YES  |     | NULL    |       |
+| internal | varchar(3)   | YES  |     | NULL    |       |
+| contact  | varchar(100) | YES  |     | NULL    |       |
+| phone    | int(11)      | YES  |     | NULL    |       |
+| city     | varchar(50)  | YES  |     | NULL    |       |
+| state    | varchar(10)  | YES  |     | NULL    |       |
+| zip      | int(11)      | YES  |     | NULL    |       |
++----------+--------------+------+-----+---------+-------+
+9 rows in set (0.01 sec)
+
+mysql> show tables;
++---------------------+
+| Tables_in_courceera |
++---------------------+
+| CUSTOMER            |
+| EMPLOYEE            |
+| EVENTPLAN           |
+| EVENTPLANLINE       |
+| EVENTREQUEST        |
+| FACILITY            |
+| LOCATION            |
+| RESOURCETBL         |
++---------------------+
+8 rows in set (0.01 sec)
+
+mysql>  select * from CUTSOMER;
+ERROR 1146 (42S02): Table 'courceera.CUTSOMER' doesn't exist
+mysql>  select * from CUSTOMER;
++--------+----------------------+---------------+----------+------------------+---------+------------+-------+-------+
+| custno | custname             | address       | internal | contact          | phone   | city       | state | zip   |
++--------+----------------------+---------------+----------+------------------+---------+------------+-------+-------+
+| C100   | Football             | Box 352200    | Y        | Mary Manager     | 6857100 | Boulder    | CO    | 80309 |
+| C101   | Men's Basketball     | Box 352400    | Y        | Sally Supervisor | 5431700 | Boulder    | CO    | 80309 |
+| C103   | Baseball             | Box 352020    | Y        | Bill Baseball    | 5431234 | Boulder    | CO    | 80309 |
+| C104   | Women's Softball     | Box 351200    | Y        | Sue Softball     | 5434321 | Boulder    | CO    | 80309 |
+| C105   | High School Football | 123 AnyStreet | N        | Coach Bob        | 4441234 | Louisville | CO    | 80027 |
++--------+----------------------+---------------+----------+------------------+---------+------------+-------+-------+
+5 rows in set (0.01 sec)
+
+mysql> desc CUSTOMER;
++----------+--------------+------+-----+---------+-------+
+| Field    | Type         | Null | Key | Default | Extra |
++----------+--------------+------+-----+---------+-------+
+| custno   | char(4)      | NO   | PRI | NULL    |       |
+| custname | varchar(100) | YES  |     | NULL    |       |
+| address  | varchar(150) | YES  |     | NULL    |       |
+| internal | varchar(3)   | YES  |     | NULL    |       |
+| contact  | varchar(100) | YES  |     | NULL    |       |
+| phone    | int(11)      | YES  |     | NULL    |       |
+| city     | varchar(50)  | YES  |     | NULL    |       |
+| state    | varchar(10)  | YES  |     | NULL    |       |
+| zip      | int(11)      | YES  |     | NULL    |       |
++----------+--------------+------+-----+---------+-------+
+9 rows in set (0.01 sec)
+
+mysql> SELECT count(*) AS anyName FROM information_schema.columns
+    -> WHERE table_name =’ CUSTOMER’;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'CUSTOMER’' at line 2
+mysql> SELECT count(*) AS COLUMNCOUNT FROM information_schema.columns WHERE table_name =’ CUSTOMER’;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'CUSTOMER’' at line 1
+mysql> SELECT count(*) AS COLUMNCOUNT FROM information_schema.columns WHERE table_name ='CUSTOMER';
++-------------+
+| COLUMNCOUNT |
++-------------+
+|           9 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> DESC FACILITY;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| faceno   | char(4)     | NO   | PRI | NULL    |       |
+| facename | varchar(50) | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql> DESC LOCATION;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| locno   | char(4)     | NO   | PRI | NULL    |       |
+| facno   | char(4)     | YES  | MUL | NULL    |       |
+| locname | varchar(50) | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> 
+mysql> DESC CUSTOMER;
++----------+--------------+------+-----+---------+-------+
+| Field    | Type         | Null | Key | Default | Extra |
++----------+--------------+------+-----+---------+-------+
+| custno   | char(4)      | NO   | PRI | NULL    |       |
+| custname | varchar(100) | YES  |     | NULL    |       |
+| address  | varchar(150) | YES  |     | NULL    |       |
+| internal | varchar(3)   | YES  |     | NULL    |       |
+| contact  | varchar(100) | YES  |     | NULL    |       |
+| phone    | int(11)      | YES  |     | NULL    |       |
+| city     | varchar(50)  | YES  |     | NULL    |       |
+| state    | varchar(10)  | YES  |     | NULL    |       |
+| zip      | int(11)      | YES  |     | NULL    |       |
++----------+--------------+------+-----+---------+-------+
+9 rows in set (0.00 sec)
+
+mysql> DESC FACILITY;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| faceno   | char(4)     | NO   | PRI | NULL    |       |
+| facename | varchar(50) | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql> DESC LOCATION;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| locno   | char(4)     | NO   | PRI | NULL    |       |
+| facno   | char(4)     | YES  | MUL | NULL    |       |
+| locname | varchar(50) | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT * FROM LOCATION;
++-------+-------+-----------------+
+| locno | facno | locname         |
++-------+-------+-----------------+
+| L100  | F100  | Locker room     |
+| L101  | F100  | Plaza           |
+| L102  | F100  | Vehicle gate    |
+| L103  | F101  | Locker room     |
+| L104  | F100  | Ticket Booth    |
+| L105  | F101  | Gate            |
+| L106  | F100  | Pedestrian gate |
++-------+-------+-----------------+
+7 rows in set (0.00 sec)
+
+mysql> 
+mysql> SELECT * FROM FACILITY;
++--------+------------------+
+| faceno | facename         |
++--------+------------------+
+| F100   | Football stadium |
+| F101   | Basketball arena |
+| F102   | Baseball field   |
+| F103   | Recreation room  |
++--------+------------------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT * FROM LOCATION;
++-------+-------+-----------------+
+| locno | facno | locname         |
++-------+-------+-----------------+
+| L100  | F100  | Locker room     |
+| L101  | F100  | Plaza           |
+| L102  | F100  | Vehicle gate    |
+| L103  | F101  | Locker room     |
+| L104  | F100  | Ticket Booth    |
+| L105  | F101  | Gate            |
+| L106  | F100  | Pedestrian gate |
++-------+-------+-----------------+
+7 rows in set (0.00 sec)
+
+mysql> ALTER TABLE "table_name"
+    -> Change "column 1" "column 2" ["Data Type"];
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '"table_name"
+Change "column 1" "column 2" ["Data Type"]' at line 1
+mysql> ALTER TABLE LOCATTION Change facno faceno varchar2;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'varchar2' at line 1
+mysql> ALTER TABLE LOCATTION Change facno faceno [varchar2];
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '[varchar2]' at line 1
+mysql> ALTER TABLE LOCATTION Change facno faceno varchar(4);
+ERROR 1146 (42S02): Table 'courceera.LOCATTION' doesn't exist
+mysql> ALTER TABLE LOCATION Change facno faceno varchar(4);
+ERROR 1846 (0A000): ALGORITHM=COPY is not supported. Reason: Columns participating in a foreign key are renamed. Try ALGORITHM=INPLACE.
+mysql> ALTER TABLE FACILITY Change faceno facno varchar(4);
+ERROR 1846 (0A000): ALGORITHM=COPY is not supported. Reason: Columns participating in a foreign key are renamed. Try ALGORITHM=INPLACE.
+mysql> DROP TABLE FACILITY;
+ERROR 1217 (23000): Cannot delete or update a parent row: a foreign key constraint fails
+mysql> ALTER TABLE FACILITY CHANGE column faceno facno char(4);
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc FACILITY;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| facno    | char(4)     | NO   | PRI | NULL    |       |
+| facename | varchar(50) | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql> 
+mysql> select * from FACILITYL
+    -> ;
+ERROR 1146 (42S02): Table 'courceera.FACILITYL' doesn't exist
+mysql> L
+
+
+mysql> SELECT * FROM FACILITY;
++-------+------------------+
+| facno | facename         |
++-------+------------------+
+| F100  | Football stadium |
+| F101  | Basketball arena |
+| F102  | Baseball field   |
+| F103  | Recreation room  |
++-------+------------------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT * FROM LOCATION;
++-------+-------+-----------------+
+| locno | facno | locname         |
++-------+-------+-----------------+
+| L100  | F100  | Locker room     |
+| L101  | F100  | Plaza           |
+| L102  | F100  | Vehicle gate    |
+| L103  | F101  | Locker room     |
+| L104  | F100  | Ticket Booth    |
+| L105  | F101  | Gate            |
+| L106  | F100  | Pedestrian gate |
++-------+-------+-----------------+
+7 rows in set (0.00 sec)
+
+mysql> SELECT * FROM FACILITY NATURAL JOIN LOCATION;
++-------+------------------+-------+-----------------+
+| facno | facename         | locno | locname         |
++-------+------------------+-------+-----------------+
+| F100  | Football stadium | L100  | Locker room     |
+| F100  | Football stadium | L101  | Plaza           |
+| F100  | Football stadium | L102  | Vehicle gate    |
+| F100  | Football stadium | L104  | Ticket Booth    |
+| F100  | Football stadium | L106  | Pedestrian gate |
+| F101  | Basketball arena | L103  | Locker room     |
+| F101  | Basketball arena | L105  | Gate            |
++-------+------------------+-------+-----------------+
+7 rows in set (0.01 sec)
+
+mysql> SELECT * FROM FACILITY RIGHT-OUTER JOIN LOCATION;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-OUTER JOIN LOCATION' at line 1
+mysql> SELECT * FROM FACILITY RIGHT OUTER JOIN LOCATION;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> SELECT * FROM FACILITY RIGHT JOIN LOCATION;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> SELECT * FROM FACILITY RIGHTOUTER JOIN LOCATION;
++-------+------------------+-------+-------+-----------------+
+| facno | facename         | locno | facno | locname         |
++-------+------------------+-------+-------+-----------------+
+| F100  | Football stadium | L100  | F100  | Locker room     |
+| F101  | Basketball arena | L100  | F100  | Locker room     |
+| F102  | Baseball field   | L100  | F100  | Locker room     |
+| F103  | Recreation room  | L100  | F100  | Locker room     |
+| F100  | Football stadium | L101  | F100  | Plaza           |
+| F101  | Basketball arena | L101  | F100  | Plaza           |
+| F102  | Baseball field   | L101  | F100  | Plaza           |
+| F103  | Recreation room  | L101  | F100  | Plaza           |
+| F100  | Football stadium | L102  | F100  | Vehicle gate    |
+| F101  | Basketball arena | L102  | F100  | Vehicle gate    |
+| F102  | Baseball field   | L102  | F100  | Vehicle gate    |
+| F103  | Recreation room  | L102  | F100  | Vehicle gate    |
+| F100  | Football stadium | L103  | F101  | Locker room     |
+| F101  | Basketball arena | L103  | F101  | Locker room     |
+| F102  | Baseball field   | L103  | F101  | Locker room     |
+| F103  | Recreation room  | L103  | F101  | Locker room     |
+| F100  | Football stadium | L104  | F100  | Ticket Booth    |
+| F101  | Basketball arena | L104  | F100  | Ticket Booth    |
+| F102  | Baseball field   | L104  | F100  | Ticket Booth    |
+| F103  | Recreation room  | L104  | F100  | Ticket Booth    |
+| F100  | Football stadium | L105  | F101  | Gate            |
+| F101  | Basketball arena | L105  | F101  | Gate            |
+| F102  | Baseball field   | L105  | F101  | Gate            |
+| F103  | Recreation room  | L105  | F101  | Gate            |
+| F100  | Football stadium | L106  | F100  | Pedestrian gate |
+| F101  | Basketball arena | L106  | F100  | Pedestrian gate |
+| F102  | Baseball field   | L106  | F100  | Pedestrian gate |
+| F103  | Recreation room  | L106  | F100  | Pedestrian gate |
++-------+------------------+-------+-------+-----------------+
+28 rows in set (0.00 sec)
+
+mysql> SELECT * FROM FACILITY JOIN LOCATION;
++-------+------------------+-------+-------+-----------------+
+| facno | facename         | locno | facno | locname         |
++-------+------------------+-------+-------+-----------------+
+| F100  | Football stadium | L100  | F100  | Locker room     |
+| F101  | Basketball arena | L100  | F100  | Locker room     |
+| F102  | Baseball field   | L100  | F100  | Locker room     |
+| F103  | Recreation room  | L100  | F100  | Locker room     |
+| F100  | Football stadium | L101  | F100  | Plaza           |
+| F101  | Basketball arena | L101  | F100  | Plaza           |
+| F102  | Baseball field   | L101  | F100  | Plaza           |
+| F103  | Recreation room  | L101  | F100  | Plaza           |
+| F100  | Football stadium | L102  | F100  | Vehicle gate    |
+| F101  | Basketball arena | L102  | F100  | Vehicle gate    |
+| F102  | Baseball field   | L102  | F100  | Vehicle gate    |
+| F103  | Recreation room  | L102  | F100  | Vehicle gate    |
+| F100  | Football stadium | L103  | F101  | Locker room     |
+| F101  | Basketball arena | L103  | F101  | Locker room     |
+| F102  | Baseball field   | L103  | F101  | Locker room     |
+| F103  | Recreation room  | L103  | F101  | Locker room     |
+| F100  | Football stadium | L104  | F100  | Ticket Booth    |
+| F101  | Basketball arena | L104  | F100  | Ticket Booth    |
+| F102  | Baseball field   | L104  | F100  | Ticket Booth    |
+| F103  | Recreation room  | L104  | F100  | Ticket Booth    |
+| F100  | Football stadium | L105  | F101  | Gate            |
+| F101  | Basketball arena | L105  | F101  | Gate            |
+| F102  | Baseball field   | L105  | F101  | Gate            |
+| F103  | Recreation room  | L105  | F101  | Gate            |
+| F100  | Football stadium | L106  | F100  | Pedestrian gate |
+| F101  | Basketball arena | L106  | F100  | Pedestrian gate |
+| F102  | Baseball field   | L106  | F100  | Pedestrian gate |
+| F103  | Recreation room  | L106  | F100  | Pedestrian gate |
++-------+------------------+-------+-------+-----------------+
+28 rows in set (0.00 sec)
+
+mysql> SELECT * FROM FACILITY RIGHTOUTER JOIN  LOCATION ON FACILITY.facno=LOCATION.facno;
+ERROR 1054 (42S22): Unknown column 'FACILITY.facno' in 'on clause'
+mysql> SELECT * FROM FACILITY RIGHT JOIN  LOCATION ON FACILITY.facno=LOCATION.facno;
++-------+------------------+-------+-------+-----------------+
+| facno | facename         | locno | facno | locname         |
++-------+------------------+-------+-------+-----------------+
+| F100  | Football stadium | L100  | F100  | Locker room     |
+| F100  | Football stadium | L101  | F100  | Plaza           |
+| F100  | Football stadium | L102  | F100  | Vehicle gate    |
+| F100  | Football stadium | L104  | F100  | Ticket Booth    |
+| F100  | Football stadium | L106  | F100  | Pedestrian gate |
+| F101  | Basketball arena | L103  | F101  | Locker room     |
+| F101  | Basketball arena | L105  | F101  | Gate            |
++-------+------------------+-------+-------+-----------------+
+7 rows in set (0.00 sec)
+
+mysql> select * from FACILITY;
++-------+------------------+
+| facno | facename         |
++-------+------------------+
+| F100  | Football stadium |
+| F101  | Basketball arena |
+| F102  | Baseball field   |
+| F103  | Recreation room  |
++-------+------------------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT * FROM LOCATION;
++-------+-------+-----------------+
+| locno | facno | locname         |
++-------+-------+-----------------+
+| L100  | F100  | Locker room     |
+| L101  | F100  | Plaza           |
+| L102  | F100  | Vehicle gate    |
+| L103  | F101  | Locker room     |
+| L104  | F100  | Ticket Booth    |
+| L105  | F101  | Gate            |
+| L106  | F100  | Pedestrian gate |
++-------+-------+-----------------+
+7 rows in set (0.00 sec)
+
+mysql> insert into LOCATION values ('L107', 'F104', 'main gate');
+ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`courceera`.`LOCATION`, CONSTRAINT `LOCATION_ibfk_1` FOREIGN KEY (`facno`) REFERENCES `FACILITY` (`facno`))
+mysql> SELECT * FROM FACILITY RIGHT JOIN  LOCATION;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> select* from LOCATION FULL JOIN FACILITY ON LOCATION.facno=FACILITY.facno;
+ERROR 1054 (42S22): Unknown column 'LOCATION.facno' in 'on clause'
+mysql> select * from LOCATION FULL JOIN FACILITY ON LOCATION.facno=FACILITY.facno;
+ERROR 1054 (42S22): Unknown column 'LOCATION.facno' in 'on clause'
+mysql> select * from LOCATION FULL JOIN FACILITY ON FACILITY.facno=LOCATION.facno;
+ERROR 1054 (42S22): Unknown column 'LOCATION.facno' in 'on clause'
+mysql> select * from LOCATION FULL JOIN FACILITY ON FACILITY.facno=LOCATION.facno;
+ERROR 1054 (42S22): Unknown column 'LOCATION.facno' in 'on clause'
+mysql> 
+mysql> select * from LOCATION FULL JOIN FACILITY ON LOCATION.facno=FACILITY.facno;
+ERROR 1054 (42S22): Unknown column 'LOCATION.facno' in 'on clause'
+mysql> select * from LOCATION FULLOUTER JOIN FACILITY ON LOCATION.facno=FACILITY.facno;
+ERROR 1054 (42S22): Unknown column 'LOCATION.facno' in 'on clause'
+mysql> DESCRIBE LOCATION;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| locno   | char(4)     | NO   | PRI | NULL    |       |
+| facno   | char(4)     | YES  | MUL | NULL    |       |
+| locname | varchar(50) | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+mysql> select * from LOCATION FULLOUTER JOIN FACILITY ON LOCATION.facno=FACILITY.facno;
+ERROR 1054 (42S22): Unknown column 'LOCATION.facno' in 'on clause'
+mysql> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+mysql> show tables;
++---------------------+
+| Tables_in_courceera |
++---------------------+
+| CUSTOMER            |
+| EMPLOYEE            |
+| EVENTPLAN           |
+| EVENTPLANLINE       |
+| EVENTREQUEST        |
+| FACILITY            |
+| LOCATION            |
+| RESOURCETBL         |
++---------------------+
+8 rows in set (0.04 sec)
+
+mysql> desc EVENTPLAN;
++----------+--------------+------+-----+---------+-------+
+| Field    | Type         | Null | Key | Default | Extra |
++----------+--------------+------+-----+---------+-------+
+| planno   | varchar(5)   | NO   | PRI | NULL    |       |
+| eventno  | char(4)      | YES  | MUL | NULL    |       |
+| workdate | date         | YES  |     | NULL    |       |
+| notes    | varchar(100) | YES  |     | NULL    |       |
+| activity | varchar(50)  | YES  |     | NULL    |       |
+| empno    | char(4)      | YES  | MUL | NULL    |       |
++----------+--------------+------+-----+---------+-------+
+6 rows in set (0.01 sec)
+
+mysql> select e.eventno,e.dateheld,c.custno,c.custname,f.facno,f.facname from EVENTREQUEST e,CUSTOMER c,FACILITY f where dateheld like 2018*;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '*' at line 1
+mysql> select e.eventno,e.dateheld,c.custno,c.custname,f.facno,f.facname from EVENTREQUEST e,CUSTOMER c,FACILITY f where dateheld like 2018*;
+mysql> select e.eventno,e.dateheld,c.custno,c.custname,f.facno,f.facname from EVENTREQUEST e,CUSTOMER c,FACILITY f where dateheld like 2018%;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%' at line 1
+mysql> select e.eventno,e.dateheld,c.custno,c.custname,f.facno,f.facname from EVENTREQUEST e,CUSTOMER c,FACILITY f where dateheld like '2018*';
+ERROR 1054 (42S22): Unknown column 'f.facname' in 'field list'
+mysql> select e.eventno,e.dateheld,c.custno,c.custname,f.facno,f.facename from EVENTREQUEST e,CUSTOMER c,FACILITY f where dateheld like '2018*';
+Empty set, 1 warning (0.01 sec)
+
+mysql> select e.eventno,e.dateheld,c.custno,c.custname,f.facno,f.facename from EVENTREQUEST e,CUSTOMER c,FACILITY f where dateheld REGEXP '2018-[0-9]{2}-[0-9][2]';
++---------+------------+--------+----------------------+-------+------------------+
+| eventno | dateheld   | custno | custname             | facno | facename         |
++---------+------------+--------+----------------------+-------+------------------+
+| E106    | 2018-12-12 | C100   | Football             | F100  | Football stadium |
+| E106    | 2018-12-12 | C100   | Football             | F101  | Basketball arena |
+| E106    | 2018-12-12 | C100   | Football             | F102  | Baseball field   |
+| E106    | 2018-12-12 | C100   | Football             | F103  | Recreation room  |
+| E106    | 2018-12-12 | C101   | Men's Basketball     | F100  | Football stadium |
+| E106    | 2018-12-12 | C101   | Men's Basketball     | F101  | Basketball arena |
+| E106    | 2018-12-12 | C101   | Men's Basketball     | F102  | Baseball field   |
+| E106    | 2018-12-12 | C101   | Men's Basketball     | F103  | Recreation room  |
+| E106    | 2018-12-12 | C103   | Baseball             | F100  | Football stadium |
+| E106    | 2018-12-12 | C103   | Baseball             | F101  | Basketball arena |
+| E106    | 2018-12-12 | C103   | Baseball             | F102  | Baseball field   |
+| E106    | 2018-12-12 | C103   | Baseball             | F103  | Recreation room  |
+| E106    | 2018-12-12 | C104   | Women's Softball     | F100  | Football stadium |
+| E106    | 2018-12-12 | C104   | Women's Softball     | F101  | Basketball arena |
+| E106    | 2018-12-12 | C104   | Women's Softball     | F102  | Baseball field   |
+| E106    | 2018-12-12 | C104   | Women's Softball     | F103  | Recreation room  |
+| E106    | 2018-12-12 | C105   | High School Football | F100  | Football stadium |
+| E106    | 2018-12-12 | C105   | High School Football | F101  | Basketball arena |
+| E106    | 2018-12-12 | C105   | High School Football | F102  | Baseball field   |
+| E106    | 2018-12-12 | C105   | High School Football | F103  | Recreation room  |
++---------+------------+--------+----------------------+-------+------------------+
+20 rows in set (0.01 sec)
+
+mysql> select e.eventno,e.dateheld,c.custno,c.custname,f.facno,f.facename from EVENTREQUEST e,CUSTOMER c,FACILITY f where dateheld REGEXP '2018-[0-9]{2}-[0-9][2]' and c.city='Boulder';
++---------+------------+--------+------------------+-------+------------------+
+| eventno | dateheld   | custno | custname         | facno | facename         |
++---------+------------+--------+------------------+-------+------------------+
+| E106    | 2018-12-12 | C100   | Football         | F100  | Football stadium |
+| E106    | 2018-12-12 | C101   | Men's Basketball | F100  | Football stadium |
+| E106    | 2018-12-12 | C103   | Baseball         | F100  | Football stadium |
+| E106    | 2018-12-12 | C104   | Women's Softball | F100  | Football stadium |
+| E106    | 2018-12-12 | C100   | Football         | F101  | Basketball arena |
+| E106    | 2018-12-12 | C101   | Men's Basketball | F101  | Basketball arena |
+| E106    | 2018-12-12 | C103   | Baseball         | F101  | Basketball arena |
+| E106    | 2018-12-12 | C104   | Women's Softball | F101  | Basketball arena |
+| E106    | 2018-12-12 | C100   | Football         | F102  | Baseball field   |
+| E106    | 2018-12-12 | C101   | Men's Basketball | F102  | Baseball field   |
+| E106    | 2018-12-12 | C103   | Baseball         | F102  | Baseball field   |
+| E106    | 2018-12-12 | C104   | Women's Softball | F102  | Baseball field   |
+| E106    | 2018-12-12 | C100   | Football         | F103  | Recreation room  |
+| E106    | 2018-12-12 | C101   | Men's Basketball | F103  | Recreation room  |
+| E106    | 2018-12-12 | C103   | Baseball         | F103  | Recreation room  |
+| E106    | 2018-12-12 | C104   | Women's Softball | F103  | Recreation room  |
++---------+------------+--------+------------------+-------+------------------+
+16 rows in set (0.00 sec)
+
+mysql> select e.eventno,e.dateheld,c.custno,c.custname,f.facno,f.facename from EVENTREQUEST e,CUSTOMER c,FACILITY f e.custno=c.custno and e.facno=f.facno and where dateheld REGEXP '2018-[0-9]{2}-[0-9][2]' and c.city='Boulder';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'e.custno=c.custno and e.facno=f.facno and where dateheld REGEXP '2018-[0-9]{2}-[' at line 1
+mysql> select e.eventno,e.dateheld,c.custno,c.custname,f.facno,f.facename from EVENTREQUEST e,CUSTOMER c,FACILITY f  where e.facno=f.facno and e.custno=c.custno and dateheld REGEXP '2018-[0-9]{2}-[0-9][2]' and c.city='Boulder';
++---------+------------+--------+------------------+-------+------------------+
+| eventno | dateheld   | custno | custname         | facno | facename         |
++---------+------------+--------+------------------+-------+------------------+
+| E106    | 2018-12-12 | C101   | Men's Basketball | F101  | Basketball arena |
++---------+------------+--------+------------------+-------+------------------+
+1 row in set (0.00 sec)
+
+mysql> select e.eventno,e.dateheld,c.custno,c.custname,f.facno,f.facename from EVENTREQUEST e,CUSTOMER c,FACILITY f  where e.facno=f.facno and e.custno=c.custno and dateheld REGEXP '2018-[0-9]{2}-[0-9]{2}' and c.city='Boulder';
++---------+------------+--------+------------------+-------+------------------+
+| eventno | dateheld   | custno | custname         | facno | facename         |
++---------+------------+--------+------------------+-------+------------------+
+| E100    | 2018-10-25 | C100   | Football         | F100  | Football stadium |
+| E101    | 2018-10-26 | C100   | Football         | F100  | Football stadium |
+| E102    | 2018-09-14 | C100   | Football         | F100  | Football stadium |
+| E103    | 2018-09-21 | C100   | Football         | F100  | Football stadium |
+| E104    | 2018-12-03 | C101   | Men's Basketball | F101  | Basketball arena |
+| E105    | 2018-12-05 | C101   | Men's Basketball | F101  | Basketball arena |
+| E106    | 2018-12-12 | C101   | Men's Basketball | F101  | Basketball arena |
++---------+------------+--------+------------------+-------+------------------+
+7 rows in set (0.00 sec)
+
+mysql> 
+mysql> select c.custno ,c.custname, e.eventno,e.dateheld,f.facno,f.facename,e.estcost from CUSTOMER c,EVENTREQUEST e,FACILITY f where e.facno=f.facno and c.custno=e.custno where e.dateheld regexp '2018-[0-9]{2}-[0-9]{2}'and e.estcost<$0.2;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where e.dateheld regexp '2018-[0-9]{2}-[0-9]{2}'and e.estcost<$0.2' at line 1
+mysql> select c.custno ,c.custname, e.eventno,e.dateheld,f.facno,f.facename,e.estcost from CUSTOMER c,EVENTREQUEST e,FACILITY f where e.facno=f.facno and c.custno=e.custno where e.dateheld regexp '2018-[0-9]{2}-[0-9]{2}'and e.estcost<$0.2;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+mysql> select c.custno ,c.custname, e.eventno,e.dateheld,f.facno,f.facename,e.estcost from CUSTOMER c,EVENTREQUEST e,FACILITY f where e.facno=f.facno and c.custno=e.custno where e.dateheld regexp '2018-[0-9]{2}-[0-9]{2}'and e.estcost<$0.2;
+
+^C
+mysql> select * from EVENTREQUEST;
++---------+------------+------------+-------+--------+------------+----------+---------+-------------+-------+
+| eventno | dateheld   | datereq    | facno | custno | dateauth   | status   | estcost | estaudience | budno |
++---------+------------+------------+-------+--------+------------+----------+---------+-------------+-------+
+| E100    | 2018-10-25 | 2018-06-06 | F100  | C100   | 2018-06-08 | Approved | 5000    |       80000 | B1000 |
+| E101    | 2018-10-26 | 2018-07-28 | F100  | C100   | NULL       | Pending  | 5000    |       80000 | B1000 |
+| E102    | 2018-09-14 | 2018-07-28 | F100  | C100   | 2018-07-31 | Approved | 5000    |       80000 | B1000 |
+| E103    | 2018-09-21 | 2018-07-28 | F100  | C100   | 2018-08-01 | Approved | 5000    |       80000 | B1000 |
+| E104    | 2018-12-03 | 2018-07-28 | F101  | C101   | 2018-07-31 | Approved | 2000    |       12000 | B1000 |
+| E105    | 2018-12-05 | 2018-07-28 | F101  | C101   | 2018-08-01 | Approved | 2000    |       10000 | B1000 |
+| E106    | 2018-12-12 | 2018-07-28 | F101  | C101   | 2018-07-31 | Approved | 2000    |       10000 | B1000 |
+| E107    | 2018-11-23 | 2018-07-28 | F100  | C105   | 2018-07-31 | Denied   | 10000   |        5000 | NULL  |
++---------+------------+------------+-------+--------+------------+----------+---------+-------------+-------+
+8 rows in set (0.00 sec)
+
+mysql> select c.custno ,c.custname, e.eventno,e.dateheld,f.facno,f.facename,e.estcost from CUSTOMER c,EVENTREQUEST e,FACILITY f where e.facno=f.facno and c.custno=e.custno where e.dateheld regexp '2018-[0-9]{2}-[0-9]{2}'and e.estcost/e.estaudience<0.2;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where e.dateheld regexp '2018-[0-9]{2}-[0-9]{2}'and e.estcost/e.estaudience<0.2' at line 1
+mysql> select c.custno ,c.custname, e.eventno,e.dateheld,f.facno,f.facename,e.estcost from CUSTOMER c,EVENTREQUEST e,FACILITY f where e.facno=f.facno and c.custno=e.custno where e.dateheld regexp '2018-[0-9]{2}-[0-9]{2}'and e.estcost/e.estaudience<0.2;
+
+
+
+
+
+
+
+
+
+
+
+
+mysql> select c.custno ,c.custname, e.eventno,e.dateheld,f.facno,f.facename,e.estcost from CUSTOMER c,EVENTREQUEST e,FACILITY f where e.facno=f.facno and c.custno=e.custno where e.dateheld regexp '2018-[0-9]{2}-[0-9]{2}'and e.estcost/e.estaudience<0.2;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where e.dateheld regexp '2018-[0-9]{2}-[0-9]{2}'and e.estcost/e.estaudience<0.2' at line 1
+mysql> select c.custno ,c.custname, e.eventno,e.dateheld,f.facno,f.facename,e.estcost from CUSTOMER c,EVENTREQUEST e,FACILITY f where e.facno=f.facno and c.custno=e.custno where e.dateheld REGEXP '2018-[0-9]{2}-[0-9]{2}'and e.estcost/e.estaudience<0.2;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where e.dateheld REGEXP '2018-[0-9]{2}-[0-9]{2}'and e.estcost/e.estaudience<0.2' at line 1
+mysql> select c.custno ,c.custname, e.eventno,e.dateheld,f.facno,f.facename,e.estcost from CUSTOMER c,EVENTREQUEST e,FACILITY f where e.facno=f.facno and c.custno=e.custno and  e.dateheld REGEXP '2018-[0-9]{2}-[0-9]{2}'and e.estcost/e.estaudience<0.2;
++--------+------------------+---------+------------+-------+------------------+---------+
+| custno | custname         | eventno | dateheld   | facno | facename         | estcost |
++--------+------------------+---------+------------+-------+------------------+---------+
+| C100   | Football         | E100    | 2018-10-25 | F100  | Football stadium | 5000    |
+| C100   | Football         | E101    | 2018-10-26 | F100  | Football stadium | 5000    |
+| C100   | Football         | E102    | 2018-09-14 | F100  | Football stadium | 5000    |
+| C100   | Football         | E103    | 2018-09-21 | F100  | Football stadium | 5000    |
+| C101   | Men's Basketball | E104    | 2018-12-03 | F101  | Basketball arena | 2000    |
++--------+------------------+---------+------------+-------+------------------+---------+
+5 rows in set (0.00 sec)
+
+mysql> select c.custno ,c.custname, e.eventno,e.dateheld,f.facno,f.facename,e.estcost e.estcost/e.estaudience as costperperson from CUSTOMER c,EVENTREQUEST e,FACILITY f where e.facno=f.facno and c.custno=e.custno and  e.dateheld REGEXP '2018-[0-9]{2}-[0-9]{2}'and e.estcost/e.estaudience<0.2;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.estcost/e.estaudience as costperperson from CUSTOMER c,EVENTREQUEST e,FACILITY ' at line 1
+mysql> select c.custno ,c.custname, e.eventno,e.dateheld,f.facno,f.facename,e.estcost/e.estaudience as costperperson from CUSTOMER c,EVENTREQUEST e,FACILITY f where e.facno=f.facno and c.custno=e.custno and  e.dateheld REGEXP '2018-[0-9]{2}-[0-9]{2}'and e.estcost/e.estaudience<0.2; 
++--------+------------------+---------+------------+-------+------------------+---------------------+
+| custno | custname         | eventno | dateheld   | facno | facename         | costperperson       |
++--------+------------------+---------+------------+-------+------------------+---------------------+
+| C100   | Football         | E100    | 2018-10-25 | F100  | Football stadium |              0.0625 |
+| C100   | Football         | E101    | 2018-10-26 | F100  | Football stadium |              0.0625 |
+| C100   | Football         | E102    | 2018-09-14 | F100  | Football stadium |              0.0625 |
+| C100   | Football         | E103    | 2018-09-21 | F100  | Football stadium |              0.0625 |
+| C101   | Men's Basketball | E104    | 2018-12-03 | F101  | Basketball arena | 0.16666666666666666 |
++--------+------------------+---------+------------+-------+------------------+---------------------+
+5 rows in set (0.00 sec)
+
+mysql> select c.custno,c.custname,sum(e.estcost) from CUSTOMER c,EVENTREQUEST e where e.status='Approved' and e.custno=c.custno group by e.custno,c.custname;
++--------+------------------+----------------+
+| custno | custname         | sum(e.estcost) |
++--------+------------------+----------------+
+| C100   | Football         |          15000 |
+| C101   | Men's Basketball |           6000 |
++--------+------------------+----------------+
+2 rows in set (0.01 sec)
+
+mysql> mysql> select c.custno,c.custname,sum(e.estcost) from CUSTOMER c,EVENTREQUEST e where e.status='Approved' and e.custno=c.custno group btno;
++--------+------------------+----------------+
+| custno | custname         | sum(e.estcost) |
++--------+------------------+----------------+
+| C100   | Football         |          15000 |
+| C101   | Men's Basketball |           6000 |
++--------+------------------+----------------+
+2 rows in set (0.00 sec)
+
+mysql> select c.custno,c.custname,sum(e.estcost) from CUSTOMER c,EVENTREQUEST e where e.status='Approved' and e.custno=c.custno group by e.custname;
+ERROR 1054 (42S22): Unknown column 'e.custname' in 'group statement'
+mysql> select c.custno,c.custname,sum(e.estcost) from CUSTOMER c,EVENTREQUEST e where e.status='Approved' and e.custno=c.custno group by c.custname;
+ERROR 1055 (42000): Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'courceera.c.custno' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+mysql> select c.custno,c.custname,sum(e.estcost) from CUSTOMER c,EVENTREQUEST e where e.status='Approved' and e.custno=c.custno group by c.custname;
+ERROR 1055 (42000): Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'courceera.c.custno' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+mysql> 
+mysql> 
